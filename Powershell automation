@@ -1,0 +1,31 @@
+Powershell script used for migration projects to install Microsoft office 365
+
+Each row pertains to the data used to the user’s data if its their email, full name, and employee number.
+
+ 
+
+# Import the CSV file
+
+$CSV = Import-Csv -Path "C:\Path\To\Your\File.csv"                                    
+
+ 
+
+# Loop through each row in the CSV file
+
+foreach ($Row in $CSV) {
+
+    # Get the computer name
+
+    $ComputerName = $Row.ComputerName
+
+ 
+
+    # Install Office 365 on the computer
+
+    Write-Host "Installing Office 365 on $ComputerName"
+
+    Install-Office365 -ComputerName $ComputerName
+
+}
+
+ 
